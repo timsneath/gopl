@@ -46,7 +46,7 @@ func lissajous(out io.Writer, cycles int) {
 		nframes = 64    // number of animation frames
 		delay   = 8     // delay between frames in 10ms units
 	)
-	maxT := float64(cycles) * 2 * math.Pi
+	maxT := float64(cycles) * 2.0 * math.Pi
 	freq := rand.Float64() * 3.0 // relative frequency of y oscillator
 	anim := gif.GIF{LoopCount: nframes}
 	phase := 0.0 // phase difference
