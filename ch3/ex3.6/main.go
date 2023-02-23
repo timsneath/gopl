@@ -16,7 +16,8 @@ func main() {
 		width, height          = 1024, 1024
 	)
 
-	palette, _ := gamut.Generate(50, gamut.PastelGenerator{})
+	// palette, _ := gamut.Generate(50, gamut.PastelGenerator{})
+	palette := gamut.Tints(gamut.Hex("#07F"), 200)
 	img := image.NewRGBA(image.Rect(0, 0, width, height))
 	for py := 0; py < height; py++ {
 		y := float64(py)/height*(ymax-ymin) + ymin
