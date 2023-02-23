@@ -28,14 +28,15 @@ func main() {
 
 func mandelbrot(z complex128) color.Color {
 	const iterations = 200
-	const contrast = 15
 
 	var v complex128
 	for n := uint8(0); n < iterations; n++ {
 		v = v*v + z
 		if cmplx.Abs(v) > 2 {
+			Cb := int(float64(n)/100*65536) / 256
+			Cr := int(float64(n)/100*65536) % 256
 
-			return color.Gray{255 - contrast*n}
+			return color.YCbCr{Y: 127, Cb: uint8(Cb), Cr: uint8(Cr)}
 		}
 	}
 	return color.Black
